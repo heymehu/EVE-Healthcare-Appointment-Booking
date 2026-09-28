@@ -39,7 +39,7 @@ export default function LoginPage() {
           <label>Email</label>
           <div className="input-wrap">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" /><path d="M4 20c1.5-4 14.5-4 16 0" stroke="currentColor" /></svg>
-            <input className="input" type="email" name="email" value={form.email} onChange={onChange} required placeholder="mehul@example.com" />
+            <input className="input" type="email" name="email" value={form.email} onChange={onChange} required placeholder="you@example.com" />
           </div>
         </div>
         <div className="field">

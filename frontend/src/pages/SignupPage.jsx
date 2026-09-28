@@ -38,14 +38,14 @@ export default function SignupPage() {
           <label>Full Name</label>
           <div className="input-wrap">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" /><path d="M4 20c1.5-4 14.5-4 16 0" stroke="currentColor" /></svg>
-            <input className="input" name="name" value={form.name} onChange={onChange} required placeholder="Mehul Kumar" />
+            <input className="input" name="name" value={form.name} onChange={onChange} required placeholder="Your full name" />
           </div>
         </div>
         <div className="field">
           <label>Email</label>
           <div className="input-wrap">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" /><path d="M3 7l9 7 9-7" stroke="currentColor" /></svg>
-            <input className="input" type="email" name="email" value={form.email} onChange={onChange} required placeholder="mehul@example.com" />
+            <input className="input" type="email" name="email" value={form.email} onChange={onChange} required placeholder="you@example.com" />
           </div>
         </div>
         <div className="field">
