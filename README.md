@@ -289,16 +289,6 @@ Sample login response:
 }
 ```
 
-## Assumptions
-
-- Appointment slots are accepted between 07:00 and 20:00; dates cannot be in the past.
-- A FAILED booking can be retried with another `POST /payments/` (new payment row).
-- CONFIRMED bookings cannot be paid again; they can be cancelled before the appointment date.
-- Webhooks may update an existing payment; they never insert a second booking.
-- Display codes such as `#BK0001` are formatted from the integer primary key.
-- Extra centre fields (rating, image, address, etc.) exist only to match the reference UI.
-- Rate limiting and caching gracefully degrade to in-memory when Redis is unavailable.
-
 ## Future improvements
 
 - Signed webhook payloads (HMAC) in addition to a shared secret
