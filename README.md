@@ -242,6 +242,26 @@ docker compose up --build
 
 Set `SECRET_KEY` in a root `.env` before using Compose in anything other than local demo.
 
+## Deploy to Vercel
+
+The root `vercel.json` builds the Vite frontend as static files and serves the FastAPI app from a Python function. Import this repository into Vercel with the repository root as the project root. Leave `VITE_API_URL` unset so the frontend calls the API on the same deployment.
+
+Configure these environment variables in Vercel for Production (and Preview if needed):
+
+- `DATABASE_URL`: a hosted PostgreSQL connection URL using the `postgresql+psycopg2://` scheme.
+- `SECRET_KEY`: a long, randomly generated secret.
+- `CORS_ORIGINS`: the deployed site origin, such as `https://your-project.vercel.app`.
+- `WEBHOOK_SECRET`: optional shared secret for payment webhooks.
+
+The database must be hosted separately; Vercel does not run the Compose PostgreSQL or Redis services. Before using the app, initialize and seed the hosted database from a machine with the backend dependencies installed and the production `DATABASE_URL` set:
+
+```bash
+cd backend
+python seed.py
+```
+
+Redis caching and rate limiting can fall back to process memory, but that state is not shared between serverless instances. Celery workers and beat are not run by Vercel; deploy those separately on an always-on worker platform if background jobs are needed.
+
 ## Tests
 
 ```bash
